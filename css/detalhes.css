@@ -1,0 +1,234 @@
+/* detalhes.css: Estilos específicos para a tela de Detalhes do Evento (detalhes.html) */
+
+/* --- VARIÁVEIS GLOBAIS e ESTILOS REQUERIDOS (Transferidos do HTML) --- */
+:root {
+    --color-primary-orange: #EC8441;
+    --color-text-dark: #333333; 
+    --color-background-screen: #F3F0EB; 
+    --color-frame-dark: #363131; 
+    --spacing-medium: 16px; 
+    --radius: 12px; 
+    --shadow-soft: 0 4px 10px rgba(0,0,0,0.08); 
+    --border: #E6E6E6;
+    --side-margin: 24px;
+}
+
+.icon-orange {
+    color: var(--color-primary-orange); 
+    /* Configurações de peso e preenchimento para o ícone do Material Symbols */
+    font-variation-settings: 'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+    vertical-align: middle; 
+    margin-right: 5px;
+    line-height: 1; 
+}
+/* --- FIM DO BLOCO TRANSFERIDO --- */
+
+
+/* --- Configurações Básicas do App Container --- */
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', 'Inter', 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--color-frame-dark); 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 420px; 
+    background-color: var(--color-background-screen); 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1); 
+}
+
+/* --- Seção Principal de Detalhes --- */
+.detalhe-container {
+    width: 100%;
+    flex-grow: 1; 
+    /* Garante espaço para o footer fixo */
+    padding-bottom: calc(var(--spacing-medium) * 2 + 52px); 
+}
+
+/* --- Cabeçalho Visual (Imagem e Botão Voltar) --- */
+.header-visual {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Altura da imagem do evento */
+    overflow: hidden;
+    margin-bottom: -30px; /* Sobrepõe o conteúdo para efeito visual */
+}
+
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.icon-btn.back-btn {
+    position: absolute;
+    top: var(--spacing-medium);
+    left: var(--spacing-medium);
+    z-index: 20;
+    /* Estilo do botão de voltar */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-dark);
+    text-decoration: none;
+    box-shadow: var(--shadow-soft);
+    transition: background-color 0.2s;
+}
+
+.icon-btn.back-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* --- Conteúdo do Evento (Texto e Info) --- */
+.event-content {
+    background-color: #FFFFFF; /* Fundo branco para o conteúdo */
+    border-top-left-radius: 30px; 
+    border-top-right-radius: 30px; 
+    padding: 30px var(--side-margin) 24px var(--side-margin);
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    z-index: 10;
+}
+
+.event-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin: 0 0 var(--spacing-medium) 0;
+}
+
+/* --- Badges (Nível e Modalidade) --- */
+.info-badges {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.primary-badge {
+    background-color: var(--color-primary-orange);
+    color: #FFFFFF;
+}
+
+.secondary-badge {
+    background-color: var(--color-background-screen);
+    color: var(--color-text-dark);
+    border: 1px solid var(--border);
+}
+
+/* --- Informações Básicas --- */
+.basic-info {
+    margin-bottom: 24px;
+}
+
+.info-item {
+    font-size: 15px;
+    color: var(--color-text-dark);
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+/* --- CORREÇÃO APLICADA: Força o negrito no texto das informações principais --- */
+.basic-info strong {
+    font-weight: 700;
+}
+
+.description-section h2, .map-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-dark);
+}
+
+.description-section p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* --- Mapa de Localização --- */
+.map-section iframe {
+    border: 1px solid var(--border);
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow-soft);
+    width: 100%;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #E6E6E6;
+}
+
+/* --- Footer Fixo (Botão de Ação) --- */
+.footer-btns { 
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    max-width: 420px;
+    background-color: #FFFFFF; 
+    z-index: 100; 
+    padding: var(--spacing-medium) var(--side-margin);
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.05); 
+}
+
+.btn {
+    width: 100%;
+    height: 52px; 
+    border: none;
+    border-radius: 26px; 
+    font-size: 18px; 
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    box-shadow: var(--shadow-soft); 
+    cursor: pointer;
+    text-align: center; 
+    line-height: 52px;
+    text-decoration: none; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.primary-btn {
+    background-color: var(--color-primary-orange); 
+    color: #FFFFFF; 
+}
+
+/* Estilo para quando o evento não for encontrado */
+.event-not-found {
+    text-align: center;
+    padding-top: 100px;
+    font-size: 18px;
+}
